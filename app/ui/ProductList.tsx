@@ -12,6 +12,7 @@ const ProductList = ({ products, servicetypes }: { products: Product[], servicet
     const [filterType, setFilterType] = useState('');
     const [minPrice, setMinPrice] = useState('');
     const [maxPrice, setMaxPrice] = useState('');
+    const [filterAvailable, setFilterAvailable] = useState('');
 
     useEffect(() => {
         let tempProducts = [...products];
@@ -33,6 +34,10 @@ const ProductList = ({ products, servicetypes }: { products: Product[], servicet
             tempProducts = tempProducts.filter(product => product.price <= parseFloat(maxPrice));
         }
 
+        if (filterAvailable) {
+            tempProducts = tempProducts.filter(product => product.available === (filterAvailable === 'available'));
+        }
+
         if (sortKey) {
             tempProducts.sort((a, b) => {
                 if (sortKey === 'price') {
@@ -45,9 +50,9 @@ const ProductList = ({ products, servicetypes }: { products: Product[], servicet
                 return 0;
             });
         }
-
         setFilteredProducts(tempProducts);
-    }, [products, searchTerm, sortKey, filterType, sortDirection, maxPrice, minPrice]);
+    }, [products, searchTerm, sortKey, filterType, sortDirection, maxPrice, minPrice, filterAvailable]
+    );
 
     return (
         <div className="container mx-auto p-4">
@@ -95,15 +100,24 @@ const ProductList = ({ products, servicetypes }: { products: Product[], servicet
                     placeholder="Min Price"
                     value={minPrice}
                     onChange={(e) => setMinPrice(e.target.value)}
-                    className="border p-2 rounded w-full max-w-xs mb-4 md:mb-0 ml-4 text-gray-900"
+                    className="border p-2 rounded w-40 max-w-xs mb-4 md:mb-0 ml-4 text-gray-900"
                 />
                 <input
                     type="number"
                     placeholder="Max Price"
                     value={maxPrice}
                     onChange={(e) => setMaxPrice(e.target.value)}
-                    className="border p-2 rounded w-full max-w-xs mb-4 md:mb-0 ml-4 text-gray-900"
+                    className="border p-2 rounded w-40 max-w-xs mb-4 md:mb-0 ml-4 text-gray-900"
                 />
+                <select
+                    value={filterAvailable}
+                    onChange={(e) => setFilterAvailable(e.target.value)}
+                    className="border p-2 rounded w-full max-w-xs mb-4 md:mb-0 ml-4 text-gray-900"
+                >
+                    <option value="">Filter by Availability</option>
+                    <option value="available">Available</option>
+                    <option value="notavailable">Not Available</option>
+                </select>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
                 {filteredProducts.map((product) => (
