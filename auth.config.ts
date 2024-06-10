@@ -17,4 +17,5 @@ export const authConfig = {
             return false;
         },
     },
+    secret: "oKbM01gEHGSjjPmjhmdxD8XF/jNSC5G+3agrahLXYNw="
 } satisfies NextAuthConfig;
