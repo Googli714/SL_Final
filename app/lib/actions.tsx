@@ -56,7 +56,7 @@ export async function logIn(
     throw error;
   }
 
-  //redirect("")
+  redirect("/products")
 }
 
 export async function logOut(
