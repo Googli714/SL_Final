@@ -13,6 +13,7 @@ export type Product = {
     descriptiongeo: string;
     price: number;
     imageurl: string;
+    available: boolean;
     servicetypeid: number; // FK from ServiceType table
 };
 

@@ -87,6 +87,7 @@ export async function addProduct(
   const price = parseInt(formData.get("price")?.toString()!);
   const imageUrl = formData.get("imageUrl")?.toString();
   const serviceType = parseInt(formData.get("serviceType")?.toString()!);
+  const available = formData.get("available")?.toString()! == 'on' ? true : false;
 
   const categories = await GetAllCategories();
 
@@ -97,8 +98,8 @@ export async function addProduct(
 
   try {
     await sql`
-                INSERT INTO products (nameeng, namegeo, descriptioneng, descriptiongeo, price, imageurl, servicetypeid)
-                VALUES (${nameEng}, ${nameGeo}, ${descriptionEng}, ${descriptionGeo}, ${price}, ${imageUrl}, ${serviceType})
+                INSERT INTO products (nameeng, namegeo, descriptioneng, descriptiongeo, price, imageurl, available, servicetypeid)
+                VALUES (${nameEng}, ${nameGeo}, ${descriptionEng}, ${descriptionGeo}, ${price}, ${imageUrl}, ${available}, ${serviceType})
               `;
   } catch (error) {
     console.log(error);

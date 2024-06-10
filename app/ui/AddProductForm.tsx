@@ -67,6 +67,15 @@ export default function ProductForm({ serviceTypes }: { serviceTypes: ServiceTyp
                         className="mt-1 p-2 w-full border border-gray-300 rounded-md text-gray-900"
                     />
                 </div>
+                <div className="mb-4 flex items-center">
+                    <label className="block text-gray-700 mb-2 mr-2" htmlFor="available">Available</label>
+                    <input
+                        type="checkbox"
+                        id="available"
+                        name="available"
+                        className="mr-2"
+                    />
+                </div>
                 <div>
                     <label className="block text-sm font-medium text-gray-700">Service Type</label>
                     <select id="serviceType" name="serviceType" className="mt-1 p-2 w-full border border-gray-300 rounded-md text-gray-900" >

@@ -37,7 +37,9 @@ export default async function Page({ params }: { params: { slug: number } }) {
                         <p className="text-gray-900">{`Name GEO: ${product.namegeo}`}</p>
                         <p className="text-gray-900">{`Description ENG: ${product.descriptioneng}`}</p>
                         <p className="text-gray-900">{`Description GEO: ${product.descriptiongeo}`}</p>
-                        <p className="text-gray-900">{`Price$: ${product.price}\nImage URL: ${product.imageurl}`}</p>
+                        <p className="text-gray-900">{`Price$: ${product.price}`}</p>
+                        <p className="text-gray-900">{`Image URL: ${product.imageurl}`}</p>
+                        <p className="text-gray-900">{`Available: ${product.available}`}</p>
                         <p className="text-gray-900">{`Service Type ID: ${product.servicetypeid}`}</p>
                         <p className="text-gray-900">{`Service Type ENG: ${servicetypes.find(s => s.id == product.servicetypeid)?.nameeng}`}</p>
                         <p className="text-gray-900">{`Service Type GEO: ${servicetypes.find(s => s.id == product.servicetypeid)?.namegeo}`}</p>
