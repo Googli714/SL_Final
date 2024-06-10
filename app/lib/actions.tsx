@@ -42,6 +42,7 @@ export async function logIn(
 ) {
   try {
     await signIn('credentials', formData);
+    redirect("/products")
   }
   catch (error) {
     console.log(error)
