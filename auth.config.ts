@@ -3,7 +3,8 @@ import type { NextAuthConfig } from 'next-auth';
 export const authConfig = {
     pages: {
         signIn: '/login',
-        signOut: '/signout'
+        signOut: '/signout',
+        newUser: '/signup'
     },
     providers: [],
     callbacks: {
@@ -11,10 +12,20 @@ export const authConfig = {
         authorized({ auth, request: { nextUrl } }) {
             const isLoggedIn = !!auth?.user;
 
-            if (isLoggedIn) {
-                return true;
+            const isGoingToProducts = nextUrl.pathname.startsWith('/products')
+            const isGoingToContactMe = nextUrl.pathname.startsWith('/contactme')
+            const isGoingToProfile = nextUrl.pathname.startsWith('/profile')
+            const isGoingToAddProduct = nextUrl.pathname.startsWith('/addproduct')
+            const isGoingToAddCategory = nextUrl.pathname.startsWith('/addcategory')
+
+            if(isGoingToAddCategory || isGoingToAddProduct || isGoingToContactMe || isGoingToProducts || isGoingToProfile) {
+                if(isLoggedIn) {
+                    return true;
+                }
+                return false;
             }
-            return false;
+
+            return true;
         },
     },
     secret: "oKbM01gEHGSjjPmjhmdxD8XF/jNSC5G+3agrahLXYNw="
