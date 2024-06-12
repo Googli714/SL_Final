@@ -63,7 +63,7 @@ export default function LoginForm() {
                 </div>
                 <LoginButton />
                 <Link href="/signup">
-                    <Button className="mt-4 w-full">Sign Up</Button>
+                    <Button className="mt-4 w-full" type="button">Sign Up</Button>
                 </Link>
                 <Button className="mt-4 w-full" type="button">
                     Continue with Facebook
