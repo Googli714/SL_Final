@@ -1,12 +1,14 @@
 import CategoryForm from '../ui/AddCategoryForm'
 import NavBar from '../ui/NavBar'
 
-export default function LoginPage() {
+export default function LoginPage({ searchParams }: { searchParams?: { lang?: string } }) {
+    const lang = searchParams?.lang || 'en';
+
     return (
         <>
-            <NavBar></NavBar>
+            <NavBar lang={lang}></NavBar>
             <div className="flex h-screen items-center justify-center">
-                <CategoryForm></CategoryForm>
+                <CategoryForm lang={lang}></CategoryForm>
             </div>
         </>
     )

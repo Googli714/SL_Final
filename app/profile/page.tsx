@@ -3,13 +3,14 @@ import NavBar from '../ui/NavBar'
 import { GetUserByEmail } from '../lib/data';
 import { EnvelopeIcon, EnvelopeOpenIcon, IdentificationIcon } from '@heroicons/react/24/outline';
 
-export default async function LoginPage() {
+export default async function LoginPage({ searchParams }: { searchParams?: { lang?: string } }) {
     const session = await auth();
     const user = await GetUserByEmail(session?.user?.email!);
+    const lang = searchParams?.lang || 'en';
 
     return (
         <>
-            <NavBar></NavBar>
+            <NavBar lang={lang}></NavBar>
             <div className="flex justify-center items-center min-h-screen bg-red-200">
                 <div className="max-w-sm w-full bg-white shadow-lg rounded-xl overflow-hidden transform transition-transform duration-200 hover:scale-105">
                     <div className="flex flex-col items-center px-6 py-8 bg-gradient-to-r from-purple-400 to-indigo-500">

@@ -2,11 +2,10 @@
 
 import { jsPDF } from "jspdf";
 import { Button } from './Button';
-import html2canvas from 'html2canvas';
 import { Product, ServiceType } from "../lib/definitions";
 import * as htmlToImage from 'html-to-image';
 
-export function DownloadButton() {
+export function DownloadButton({ lang }: { lang: string }) {
 
 
     async function printDocument() {
@@ -24,5 +23,5 @@ export function DownloadButton() {
             });
     }
 
-    return <Button className='w-40' onClick={printDocument}>Download as PDF</Button>
+    return <Button className='w-40' onClick={printDocument}>{lang == 'en' ? "Download as PDF" : "ჩამოტვირთვა"}</Button>
 }

@@ -1,12 +1,14 @@
 import ContactMeForm from '../ui/AddContactMe'
 import NavBar from '../ui/NavBar'
 
-export default async function LoginPage() {
+export default async function LoginPage({ searchParams }: { searchParams?: { lang?: string } }) {
+    const lang = searchParams?.lang || 'en';
+
     return (
         <>
-            <NavBar></NavBar>
+            <NavBar lang={lang}></NavBar>
             <div className="flex h-screen items-center justify-center">
-                <ContactMeForm></ContactMeForm>
+                <ContactMeForm lang={lang}></ContactMeForm>
             </div>
         </>
     )

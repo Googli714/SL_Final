@@ -4,9 +4,10 @@ interface IProductCard {
     price: number;
     link: string;
     available: boolean;
+    lang: string;
 }
 
-function ProductCard({ image, name, price, link, available }: IProductCard) {
+function ProductCard({ image, name, price, link, available, lang }: IProductCard) {
     return (
         <div className="max-w-sm bg-white shadow-lg rounded-lg overflow-hidden m-4 transform transition-transform duration-200 hover:scale-105 hover:shadow-2xl">
             <a href={link}>
@@ -15,7 +16,9 @@ function ProductCard({ image, name, price, link, available }: IProductCard) {
             <div className="p-4">
                 <h2 className="text-xl font-bold text-gray-900">{name}</h2>
                 <p className="text-gray-800 font-semibold text-gray-900">${price}</p>
-                <p className="text-gray-800 font-semibold text-gray-900">Available: {available ? "Yes" : "No"}</p>
+
+                {lang == 'en' ? <p className="text-gray-800 font-semibold text-gray-900">Available: {available ? "Yes" : "No"}</p>
+                    : <p className="text-gray-800 font-semibold text-gray-900">მიწვდომადი: {available ? "კი" : "არა"}</p>}
             </div>
         </div>
     );
