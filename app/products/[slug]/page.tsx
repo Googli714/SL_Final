@@ -5,13 +5,17 @@ import { Button } from "@/app/ui/Button";
 import { DownloadButton } from "@/app/ui/DownloadButton";
 import NavBar from "@/app/ui/NavBar";
 
-export default async function Page({ params }: { params: { slug: number } }) {
+export default async function Page({ params, searchParams }: { params: { slug: number }, searchParams: { lang: string } }) {
     const product = await GetProductById(params.slug);
     const servicetypes = await GetAllCategories();
 
+    console.log(params)
+
+    const lang = searchParams?.lang || 'en';
+
     return (
         <>
-            <NavBar></NavBar>
+            <NavBar lang={lang}></NavBar>
             <div className="flex items-center justify-center flex-wrap">
                 <div className="flex flex-col items-center">
                     <div className="mx-auto p-6">
@@ -44,7 +48,7 @@ export default async function Page({ params }: { params: { slug: number } }) {
                         <p className="text-gray-900">{`Service Type ENG: ${servicetypes.find(s => s.id == product.servicetypeid)?.nameeng}`}</p>
                         <p className="text-gray-900">{`Service Type GEO: ${servicetypes.find(s => s.id == product.servicetypeid)?.namegeo}`}</p>
                     </div>
-                    <DownloadButton></DownloadButton>
+                    <DownloadButton lang={lang}></DownloadButton>
                 </div>
 
             </div>

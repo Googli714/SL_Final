@@ -8,6 +8,8 @@ interface IProductCard {
 }
 
 function ProductCard({ image, name, price, link, available, lang }: IProductCard) {
+    console.log(lang)
+
     return (
         <div className="max-w-sm bg-white shadow-lg rounded-lg overflow-hidden m-4 transform transition-transform duration-200 hover:scale-105 hover:shadow-2xl">
             <a href={link}>

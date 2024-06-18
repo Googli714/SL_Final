@@ -142,7 +142,7 @@ const ProductList = ({ products, servicetypes, lang }: { products: Product[], se
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
                 {filteredProducts.map((product) => (
-                    <ProductCard key={product.id} image={product.imageurl} name={lang == 'en' ? product.nameeng : product.namegeo} price={product.price} link={`/products/${product.id}`} available={product.available} lang={lang} />
+                    <ProductCard key={product.id} image={product.imageurl} name={lang == 'en' ? product.nameeng : product.namegeo} price={product.price} link={`/products/${product.id}?lang=` + lang} available={product.available} lang={lang} />
                 ))}
             </div>
         </div>
