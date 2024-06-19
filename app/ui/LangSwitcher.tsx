@@ -19,7 +19,7 @@ async function LangSwithcer() {
     }
 
     return (
-        <select defaultValue='en' value={searchParams.get('lang')!} onChange={(e) => handleChangeLanguage(e.target.value)} className="border border-gray-300 p-1 rounded-md text-gray-900">
+        <select defaultValue='en' onChange={(e) => handleChangeLanguage(e.target.value)} className="border border-gray-300 p-1 rounded-md text-gray-900">
             {languages.map((lang) => (
                 <option key={lang} value={lang}>{lang}</option>
             ))}

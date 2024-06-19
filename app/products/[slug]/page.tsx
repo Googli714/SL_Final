@@ -9,8 +9,6 @@ export default async function Page({ params, searchParams }: { params: { slug: n
     const product = await GetProductById(params.slug);
     const servicetypes = await GetAllCategories();
 
-    console.log(params)
-
     const lang = searchParams?.lang || 'en';
 
     return (

@@ -17,8 +17,9 @@ export const authConfig = {
             const isGoingToProfile = nextUrl.pathname.startsWith('/profile')
             const isGoingToAddProduct = nextUrl.pathname.startsWith('/addproduct')
             const isGoingToAddCategory = nextUrl.pathname.startsWith('/addcategory')
+            const isGoingToMain = nextUrl.pathname.startsWith('/')
 
-            if(isGoingToAddCategory || isGoingToAddProduct || isGoingToContactMe || isGoingToProducts || isGoingToProfile) {
+            if(isGoingToAddCategory || isGoingToAddProduct || isGoingToContactMe || isGoingToProducts || isGoingToProfile || isGoingToMain) {
                 if(isLoggedIn) {
                     return true;
                 }

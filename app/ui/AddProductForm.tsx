@@ -78,7 +78,7 @@ export default function ProductForm({ serviceTypes, lang }: { serviceTypes: Serv
                 </div>
                 <div>
                     <label className="block text-sm font-medium text-gray-700">{lang == 'en' ? "Service Type" : "სერვისის ტიპი"}</label>
-                    <select id="serviceType" name="serviceType" className="mt-1 p-2 w-full border border-gray-300 rounded-md text-gray-900" >
+                    <select value="" id="serviceType" name="serviceType" className="mt-1 p-2 w-full border border-gray-300 rounded-md text-gray-900" >
                         <option key="0" value="" className="text-gray-900">{lang == 'en' ? "Select Service Type" : "აირჩიეთ სერვისის ტიპი"}</option>
                         {
                             serviceTypes.map((type) =>
