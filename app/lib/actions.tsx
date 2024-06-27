@@ -25,12 +25,12 @@ export async function signUp(
 
   try {
     await sql`
-              INSERT INTO users (email, password, imageurl)
+              INSERT INTO users (email, password, image)
               VALUES (${email}, ${passwordHash}, ${imageurl})
             `;
   } catch (error) {
     console.log(error);
-    return 'Database Error: Failed to Create Invoice.';
+    return 'Database Error: Failed to Create User.';
   }
 
   redirect("/login");
